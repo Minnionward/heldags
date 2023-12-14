@@ -1,4 +1,5 @@
-#når jeg laget programmet fikk jeg mye hjelp av en kompis som har jobbet som fullstack dev i 3 år
+#når jeg laget programmet fikk jeg mye hjelp av en kompis som har jobbet som fullstack dev i 3 år når jeg lagde demo version
+#jeg fikk også hjelp til hvordan jeg skulle videre utvikle programmet hvis det var nødvendig.
 
 
 
@@ -17,7 +18,7 @@ leietaker_collection = database["leietakere"]
 
 # Definer en klasse som representerer en Leietaker
 class Leietaker:
-    def __init__(self, navn, etternavn, kontaktinfo, leie_start, leie_slutt, kontornummer):
+    def __init__(self, navn, etternavn, kontaktinfo, leie_start, leie_slutt, kontornummer, faktura):
         # Initialiser instansvariabler med gitt verdier
         self.navn = navn
         self.etternavn = etternavn
@@ -25,6 +26,7 @@ class Leietaker:
         self.kontornummer = kontornummer
         self.leie_start = leie_start
         self.leie_slutt = leie_slutt
+        self.faktura = faktura
         
 
     # Metode for å lagre Leietaker-instansen i MongoDB-samlingen
@@ -36,6 +38,7 @@ class Leietaker:
             "leie_start": self.leie_start,
             "leie_slutt": self.leie_slutt,
             "kontornummer": self.kontornummer,
+            "faktura": self.faktura,
         })
 
     # Metode for å oppdatere Leietaker-instansen i MongoDB-samlingen
@@ -47,7 +50,9 @@ class Leietaker:
                 "kontaktinfo": self.kontaktinfo,
                 "leie_start": self.leie_start,
                 "leie_slutt": self.leie_slutt,
-                "kontornummer": self.kontornummer
+                "kontornummer": self.kontornummer,
+                "faktura": self.faktura
+                
             }}
         )
 
@@ -96,9 +101,10 @@ def legg_til_ny_leietaker():
     leie_start = input("Leieavtale startdato: ")
     leie_slutt = input("Leieavtale sluttdato: ")
     kontornummer = input("kontornummer")
+    faktura = input("faktura")
 
     # Opprett en ny Leietaker-instans
-    ny_leietaker = Leietaker(navn, etternavn, kontaktinfo, leie_start, leie_slutt, kontornummer)
+    ny_leietaker = Leietaker(navn, etternavn, kontaktinfo, leie_start, leie_slutt, kontornummer, faktura)
     # Lagre den nye Leietaker-instansen i MongoDB-samlingen
     ny_leietaker.lagre_i_database()
     print(f"{navn} er lagt til som leietaker.")
@@ -135,9 +141,10 @@ def oppdater_leietaker():
         leie_start = input("Oppdater leieavtale startdato: ")
         leie_slutt = input("Oppdater leieavtale sluttdato: ")
         kontornummer = input("Oppdater kontornummer")
+        faktura = input("oppdater faktura")
 
         # Opprett en oppdatert Leietaker-instans
-        oppdatert_leietaker = Leietaker(navn, etternavn, kontaktinfo, leie_start, leie_slutt, kontornummer)
+        oppdatert_leietaker = Leietaker(navn, etternavn, kontaktinfo, leie_start, leie_slutt, kontornummer, faktura)
         # Oppdater Leietaker-instansen i MongoDB-samlingen
         oppdatert_leietaker.oppdater_i_database()
 
