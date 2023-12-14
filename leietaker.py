@@ -95,6 +95,7 @@ def legg_til_ny_leietaker():
     kontaktinfo = input("Kontaktinformasjon: ")
     leie_start = input("Leieavtale startdato: ")
     leie_slutt = input("Leieavtale sluttdato: ")
+    kontornummer = input("kontornummer")
 
     # Opprett en ny Leietaker-instans
     ny_leietaker = Leietaker(navn, etternavn, kontaktinfo, leie_start, leie_slutt, kontornummer)
