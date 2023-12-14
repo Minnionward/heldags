@@ -1,4 +1,5 @@
-#når jeg laget programmet fikk jeg mye hjelp av en kompis som har jobbet som fullstack dev i 3 år
+#når jeg laget programmet fikk jeg mye hjelp av en kompis som har jobbet som fullstack dev i 3 år når jeg lagde demo version
+#jeg fikk også hjelp til hvordan jeg skulle videre utvikle programmet hvis det var nødvendig.
 
 
 
